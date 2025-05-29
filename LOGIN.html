@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dual Diaries - Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fef9f4, #f7ece1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #3d3b40;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .login-btn {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      background-color: #3d3b40;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .login-btn:hover {
+      background-color: #2a282d;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #777;
+    }
+    .checkbox-label {
+      margin-top: 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    .checkbox-label input {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Welcome Back </h2>
+    <form id="loginForm">
+      <label for="username">Instagram Username:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="followCheck" />
+        I confirm I follow <strong>@dual_.diaries</strong> on Instagram
+      </label>
+
+      <button class="login-btn" type="submit">Login</button>
+    </form>
+    <div class="note">
+      Must follow <strong>@dual_.diaries</strong> on Instagram before submitting your poem!
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const followCheck = document.getElementById('followCheck').checked;
+
+      if (!username || !password) {
+        alert('Please enter your Instagram username and password.');
+        return;
+      }
+
+      if (!followCheck) {
+        alert('Please confirm that you follow @dualdiaries on Instagram.');
+        return;
+      }
+
+      // If all good, redirect to homepage (index.html)
+      alert('Login successful! Redirecting to home page...');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
